@@ -6,6 +6,7 @@
     <title>ColorPro Awards 2025 - Interactive Media Plan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -14,8 +15,7 @@
     <!-- Visualization & Content Choices: 
     - Core Metrics: Goal=Inform -> Method=Large stat cards (HTML/Tailwind). Justification=Provides immediate clarity on the campaign's foundational numbers.
     - Funnel: Goal=Organize -> Method=Styled HTML/Tailwind diagram. Justification=Visually explains the strategic framework before showing budget details.
-    - Budget Allocation (Platform/Funnel): Goal=Compare/Inform -> Viz=Donut Charts (Chart.js). Interaction=Clicking a segment updates a rationale text box. Justification=Donuts are ideal for showing parts of a whole (100% of the budget). The click-to-explain interaction is the core of the application, revealing the logic behind the numbers.
-    - Budget Allocation (Region): Goal=Compare -> Viz=Bar Chart (Chart.js). Interaction=Clicking a bar updates the rationale text. Justification=Bars are better for comparing distinct categories (regional tiers) that aren't parts of a direct whole.
+    - Budget Allocation (Platform/Funnel/Region): Goal=Compare/Inform -> Viz=Donut Charts (Chart.js). Interaction=Clicking a segment updates a rationale text box. Justification=Donuts are ideal for showing parts of a whole (100% of the budget). The click-to-explain interaction is the core of the application, revealing the logic behind the numbers.
     - Timeline: Goal=Organize/Change -> Method=Styled HTML/Tailwind diagram. Justification=Clearly shows the phased creative approach over the campaign's duration.
     - KPIs & Risks: Goal=Inform -> Method=Styled list and HTML table. Justification=Presents critical success metrics and contingency plans in a clear, digestible format. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
@@ -87,9 +87,9 @@
     <main class="container mx-auto px-6 py-8 md:py-12">
 
         <section id="objective" class="mb-16 text-center">
-            <h2 class="text-3xl font-bold mb-4">The North Star: Our Core Objective</h2>
+            <h2 class="text-3xl font-bold mb-4">Our North Star: The Core Objective</h2>
             <p class="max-w-3xl mx-auto text-gray-600 mb-8">
-                This entire plan is reverse-engineered from a single, primary objective: to generate the maximum number of quality submissions. Every decision is made to efficiently achieve our target Cost Per Acquisition.
+                This entire plan is reverse-engineered from one primary goal: to acquire the most high-quality submissions as efficiently as possible. Every decision is made to effectively hit our target Cost Per Acquisition (CPA).
             </p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="stat-card">
@@ -110,22 +110,22 @@
         <section id="strategy" class="mb-16">
             <h2 class="text-3xl font-bold mb-4 text-center">Our Strategic Framework: The Funnel</h2>
             <p class="max-w-3xl mx-auto text-gray-600 mb-10 text-center">
-                We'll guide creators on a journey from discovery to submission using a classic full-funnel approach. This ensures we build a broad audience and then efficiently convert those with the highest interest, maximizing our budget's effectiveness.
+                We will guide creators on a journey from discovery to submission. This full-funnel approach ensures we build a wide audience, then efficiently convert those most interested, maximizing our budget's effectiveness.
             </p>
             <div class="flex flex-col md:flex-row justify-center items-center md:items-start gap-8">
                  <div class="w-full md:w-1/3 p-6 bg-white rounded-lg shadow-md">
                     <h3 class="text-xl font-bold mb-2 text-[#81B29A]">1. Awareness</h3>
-                    <p class="text-gray-600">Broadly reach potential creators to build campaign recognition and generate initial excitement. The goal is mass reach within our target demographic.</p>
+                    <p class="text-gray-600">Broadly reach potential creators to build campaign recognition and generate initial interest. The goal is mass reach within our target audience.</p>
                 </div>
                 <div class="text-2xl text-gray-400 transform md:rotate-0 rotate-90">&darr;</div>
                 <div class="w-full md:w-1/3 p-6 bg-white rounded-lg shadow-md">
                     <h3 class="text-xl font-bold mb-2 text-[#E07A5F]">2. Consideration</h3>
-                    <p class="text-gray-600">Drive qualified traffic to the event website. We'll engage users who have shown interest with more detailed content about categories, prizes, and judges.</p>
+                    <p class="text-gray-600">Drive qualified traffic to the campaign website. We'll engage users who have shown interest with more detailed content like categories, prizes, and judges.</p>
                 </div>
                  <div class="text-2xl text-gray-400 transform md:rotate-0 rotate-90">&darr;</div>
                 <div class="w-full md:w-1/3 p-6 bg-white rounded-lg shadow-md">
                     <h3 class="text-xl font-bold mb-2 text-gray-700">3. Conversion</h3>
-                    <p class="text-gray-600">Convert site visitors into actual submissions through strategic retargeting, clear calls-to-action, and urgency-driven messaging as the deadline nears.</p>
+                    <p class="text-gray-600">Turn website visitors into actual submitters through strategic retargeting, clear calls-to-action, and urgency messaging near the deadline.</p>
                 </div>
             </div>
         </section>
@@ -133,7 +133,7 @@
         <section id="budget" class="mb-16">
             <h2 class="text-3xl font-bold mb-4 text-center">Interactive Budget Allocation</h2>
             <p class="max-w-3xl mx-auto text-gray-600 mb-8 text-center">
-                Our budget is strategically allocated to the platforms, funnel stages, and regions with the highest potential for driving cost-effective submissions. <strong class="text-[#E07A5F]">Click on any chart segment below to see the detailed rationale.</strong>
+                Our budget is strategically allocated to the platforms, funnel stages, and regions with the most potential to drive low-cost submissions. <strong class="text-[#E07A5F]">Click any section of the charts below to see the detailed rationale.</strong>
             </p>
             <div class="flex justify-center mb-8">
                 <div class="flex rounded-lg border border-gray-200 p-1 bg-gray-100">
@@ -157,8 +157,8 @@
                         </div>
                     </div>
                     <div id="rationale" class="p-6 bg-gray-50 rounded-lg min-h-[300px]">
-                        <h3 id="rationaleTitle" class="text-2xl font-bold mb-3">Platform Rationale</h3>
-                        <p id="rationaleText" class="text-gray-700">Select a chart segment to view the detailed logic behind our budget decisions. This includes platform choice, ad formats, and expected outcomes for each investment.</p>
+                        <h3 id="rationaleTitle" class="text-2xl font-bold mb-3">Platform Allocation Rationale</h3>
+                        <p id="rationaleText" class="text-gray-700">Select a section of the chart to view the detailed logic behind our budget decisions, including platform choice, ad formats, and expected outcomes for each investment.</p>
                     </div>
                 </div>
             </div>
@@ -166,24 +166,24 @@
 
         <section id="timeline" class="mb-16">
              <h2 class="text-3xl font-bold mb-4 text-center">Campaign Timeline & Creative Phasing</h2>
-             <p class="max-w-3xl mx-auto text-gray-600 mb-10 text-center">The two-month campaign is structured in three distinct phases, each with a specific messaging focus and call-to-action to guide the user journey effectively.</p>
+             <p class="max-w-3xl mx-auto text-gray-600 mb-10 text-center">The two-month campaign is divided into three distinct phases, each with a specific messaging focus and call-to-action to effectively guide the user journey.</p>
             <div class="relative pl-10 border-l-2 border-gray-300">
                 <div class="mb-12 relative timeline-item">
                     <h4 class="text-xl font-bold text-[#E07A5F]">Phase 1: Launch (Aug 1 - 21)</h4>
                     <p class="text-gray-500 font-medium">Focus: Awe & Opportunity</p>
-                    <p class="text-gray-600 mt-2">Build initial hype with stunning visuals from past winners. The goal is to establish credibility and capture broad interest.</p>
+                    <p class="text-gray-600 mt-2">Build initial hype using stunning visuals from past winners. The goal is to establish credibility and capture broad interest.</p>
                     <p class="mt-2 font-bold text-gray-800">CTA: "Learn More"</p>
                 </div>
                 <div class="mb-12 relative timeline-item">
                     <h4 class="text-xl font-bold text-[#E07A5F]">Phase 2: Mid-Campaign (Aug 22 - Sep 14)</h4>
                     <p class="text-gray-500 font-medium">Focus: Inspiration & Relevance</p>
-                    <p class="text-gray-600 mt-2">Showcase specific categories (Photography, Video, Digital Art) to spark creative ideas and make the contest feel more accessible. Drive qualified users to the site.</p>
+                    <p class="text-gray-600 mt-2">Showcase specific categories (Photo, Video, Digital Art) to spark ideas and make the competition feel more accessible. Drive qualified users to the site.</p>
                     <p class="mt-2 font-bold text-gray-800">CTA: "Start Your Submission"</p>
                 </div>
                  <div class="relative timeline-item">
                     <h4 class="text-xl font-bold text-[#E07A5F]">Phase 3: Final Weeks (Sep 15 - 30)</h4>
                     <p class="text-gray-500 font-medium">Focus: Urgency & Scarcity</p>
-                    <p class="text-gray-600 mt-2">Use clear countdowns and direct messaging. The goal is to convert high-intent users who have procrastinated.</p>
+                    <p class="text-gray-600 mt-2">Use clear countdowns and direct messaging. The goal is to convert high-intent users who have been procrastinating.</p>
                     <p class="mt-2 font-bold text-gray-800">CTA: "Submit Now"</p>
                 </div>
             </div>
@@ -200,14 +200,14 @@
                             <span class="text-green-500 mr-3 mt-1">&#10004;</span>
                             <div>
                                 <h4 class="font-bold">Cost Per Acquisition (CPA)</h4>
-                                <p class="text-gray-600">Our North Star metric. We'll optimize constantly to keep this below $8.57.</p>
+                                <p class="text-gray-600">Our North Star metric. We will constantly optimize to keep this below $8.57.</p>
                             </div>
                         </li>
                         <li class="flex items-start">
                              <span class="text-green-500 mr-3 mt-1">&#10004;</span>
                             <div>
-                                <h4 class="font-bold">Submission Volume</h4>
-                                <p class="text-gray-600">The primary outcome. Monitored daily against our target pace.</p>
+                                <h4 class="font-bold">Total Submissions</h4>
+                                <p class="text-gray-600">The primary outcome. Monitored daily against our target velocity.</p>
                             </div>
                         </li>
                         <li class="flex items-start">
@@ -220,7 +220,7 @@
                     </ul>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-bold mb-4">Risks & Mitigation</h3>
+                    <h3 class="text-2xl font-bold mb-4">Risks & Mitigations</h3>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left">
                             <thead class="bg-gray-50">
@@ -236,15 +236,40 @@
                                 </tr>
                                 <tr class="border-b">
                                     <td class="p-3">Low Conversion Rate</td>
-                                    <td class="p-3 text-gray-600">A/B test landing page elements (headline, CTA) with the web team.</td>
+                                    <td class="p-3 text-gray-600">Work with web team to A/B test landing page elements (headline, CTA).</td>
                                 </tr>
                                 <tr>
                                     <td class="p-3">Ad Fatigue</td>
-                                    <td class="p-3 text-gray-600">Deploy pre-made backup creative sets mid-campaign to keep content fresh.</td>
+                                    <td class="p-3 text-gray-600">Deploy pre-planned backup creative assets mid-campaign to keep content fresh.</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="summary" class="mb-16">
+            <h2 class="text-3xl font-bold mb-4 text-center">Plan Summary</h2>
+            <p class="max-w-3xl mx-auto text-gray-600 mb-10 text-center">
+                This plan is designed to maximize submissions cost-effectively through data-driven decisions. The strategy is summarized by four core pillars:
+            </p>
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg space-y-6">
+                <div>
+                    <h3 class="text-2xl font-bold mb-2 text-[#E07A5F]">Platform Strategy</h3>
+                    <p class="text-gray-700">We employ a "Core + Satellite" model. <strong>50% of the budget</strong> is focused on <strong>Meta (IG/FB)</strong> as the core hub for the creative community, supplemented by <strong>Google</strong> for high-intent search, <strong>TikTok</strong> for youth outreach, and <strong>X (Twitter)</strong> for community amplification, ensuring total coverage and deep engagement.</p>
+                </div>
+                <div class="border-t pt-6">
+                    <h3 class="text-2xl font-bold mb-2 text-[#81B29A]">Budget Strategy</h3>
+                    <p class="text-gray-700">The entire $60,000 budget is governed by achieving a <strong>Target CPA below $8.57</strong>. The budget is weighted towards the bottom of the funnel, with <strong>40%</strong> dedicated to the most efficient 'Conversion' stage. The key to this plan is <strong>dynamic, weekly optimization</strong> based on data, not a rigid set-and-forget allocation.</p>
+                </div>
+                <div class="border-t pt-6">
+                    <h3 class="text-2xl font-bold mb-2 text-[#F2CC8F]">Regional Strategy</h3>
+                    <p class="text-gray-700">We use a <strong>tiered investment</strong> to balance quality, volume, and cost. <strong>60% of budget</strong> goes to higher-cost, mature Tier 2 markets (NA, EU) to ensure quality submissions, while <strong>30%</strong> is allocated to lower-cost Tier 1 markets (IN, VN) to efficiently drive the total submission volume needed to hit our 7,000 target.</p>
+                </div>
+                <div class="border-t pt-6">
+                    <h3 class="text-2xl font-bold mb-2 text-gray-700">Timeline & Phasing</h3>
+                    <p class="text-gray-700">The two-month campaign (Aug-Sep) is phased into three stages: <strong>Launch (Awe & Opportunity)</strong>, <strong>Mid-Campaign (Inspiration & Relevance)</strong>, and <strong>Final Push (Urgency)</strong>. Each phase uses distinct creative messaging and calls-to-action that align with the user's mindset, guiding them progressively toward submission.</p>
                 </div>
             </div>
         </section>
@@ -259,6 +284,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            Chart.register(ChartDataLabels);
+
             const platformData = {
                 labels: ['Meta (IG/FB)', 'Google (Search/YT)', 'TikTok', 'X (Twitter)'],
                 datasets: [{
@@ -280,28 +307,39 @@
             };
 
             const regionData = {
-                labels: ['Tier 1 (IN, VN)', 'Tier 2 (NA, UK, DE, FR)', 'Tier 3 (TR, TW)'],
+                labels: ['Tier 2 (NA, UK, DE, FR)', 'Tier 1 (IN, VN)', 'Tier 3 (TR, TW)'],
                 datasets: [{
-                    label: 'Regional Tier Allocation ($)',
-                    data: [18000, 36000, 6000],
-                    backgroundColor: ['#81B29A', '#F2CC8F', '#E07A5F'],
-                    borderColor: '#FFFFFF',
-                    borderWidth: 1
+                    label: 'Regional Tier Allocation',
+                    data: [36000, 18000, 6000],
+                    backgroundColor: ['#F2CC8F', '#81B29A', '#E07A5F'],
+                    hoverOffset: 4
                 }]
             };
-
+            
             const rationaleContent = {
+                'platform_summary': {
+                    title: 'Platform Allocation Strategy',
+                    text: 'Our platform budget follows a "Core First, Reach Wide" principle. The largest share (50%) goes to Meta, the central hub for creative communities. Google (25%) is for capturing high-intent search traffic. TikTok (15%) is dedicated to reaching a younger demographic, and X/Twitter (10%) serves as a channel for community engagement and amplification.'
+                },
+                'funnel_summary': {
+                    title: 'Funnel Stage Strategy',
+                    text: 'Our budget is weighted towards the bottom of the funnel, with the largest share (40%) allocated to the Conversion stage. This is because retargeting users who have already visited our site is the most efficient way to achieve our target CPA. Investment in Awareness and Consideration ensures a steady flow of qualified prospects into the conversion stage.'
+                },
+                'region_summary': {
+                    title: 'Regional Allocation Strategy',
+                    text: 'We are using a tiered strategy to balance cost and value. The largest budget (60%) is invested in Tier 2 markets, which are mature and high-value, albeit with higher media costs. We are allocating 30% of the budget to lower-cost Tier 1 markets to drive a high volume of submissions, ensuring we meet our overall target of 7,000.'
+                },
                 'Meta (IG/FB)': {
                     title: 'Meta (50% | $30k)',
-                    text: 'This is our core platform. The visual nature of Instagram and Facebook is the epicenter of the creator community. We will use video ads for Awareness, carousel ads showcasing categories for Consideration, and powerful retargeting for Conversion. The budget is high because this platform will drive the majority of submissions.'
+                    text: 'This is our core platform. The visual nature of Instagram and Facebook is central to the creative community. We will use video ads for awareness, carousel ads to showcase categories for consideration, and powerful retargeting for conversion. The high budget share reflects that this platform will drive the bulk of submissions.'
                 },
                 'Google (Search/YT)': {
                     title: 'Google (25% | $15k)',
-                    text: 'This is our high-intent channel. Search ads will capture users actively looking for "photo contests". YouTube ads (in-stream & shorts) will be used for visual storytelling and inspiration, targeting channels related to photography, videography, and digital art tutorials.'
+                    text: 'This is our high-intent channel. Search ads will capture users actively looking for "photo contests". YouTube ads (in-stream and Shorts) will be used for visual storytelling and inspiration, targeting channels related to photography, videography, and digital art tutorials.'
                 },
                 'TikTok': {
                     title: 'TikTok (15% | $9k)',
-                    text: 'This platform is for reaching a younger, video-centric demographic. The goal here is top-of-funnel awareness and driving viral trends. We will use short, engaging video ads and partner with small-to-mid-size creative influencers to promote the awards.'
+                    text: 'This platform is for reaching a younger, video-centric audience. The goal is top-of-funnel awareness and driving viral trends. We will use short, engaging video ads and partner with micro-influencers in the creative space to promote the awards.'
                 },
                 'X (Twitter)': {
                     title: 'X (Twitter) (10% | $6k)',
@@ -309,27 +347,27 @@
                 },
                 'Awareness': {
                     title: 'Awareness (25% | $15k)',
-                    text: 'The goal of this stage is maximum reach. Budget is focused on lower-cost objectives like video views and reach on Meta and TikTok to build a large, qualified audience pool that we can later retarget.'
+                    text: 'The goal at this stage is to maximize reach. The budget is focused on lower-cost objectives like video views and reach on Meta and TikTok to build a large pool of qualified audiences that we can retarget later.'
                 },
                 'Consideration': {
                     title: 'Consideration (35% | $21k)',
-                    text: 'This is where we drive qualified traffic. Budget is allocated to Traffic and Engagement campaigns, directing users who have shown interest to the ColorPro Awards website. We will use more informative creative that details prizes and categories.'
+                    text: 'This is where we drive qualified traffic. The budget is allocated to traffic and engagement campaigns that send users who have shown interest to the ColorPro Awards website. We will use more informative creative detailing prizes and categories.'
                 },
                 'Conversion': {
                     title: 'Conversion (40% | $24k)',
-                    text: 'This is the most critical stage and receives the largest budget share. This funding is dedicated almost exclusively to retargeting website visitors and users who have engaged with our ads. The messaging will be direct, with a clear CTA to submit, leveraging urgency as the deadline approaches.'
+                    text: 'This is the most critical stage and receives the largest budget share. This money is almost exclusively for retargeting website visitors and users who have engaged with our ads. The messaging will be direct and feature clear calls-to-action to submit as the deadline approaches.'
                 },
                 'Tier 1 (IN, VN)': {
                     title: 'Tier 1 (30% | $18k)',
-                    text: 'These regions represent high-growth potential with a lower media cost (CPM). We can achieve significant reach and submission volume efficiently. The goal is to maximize our submission count in these cost-effective markets.'
+                    text: 'These regions represent high-growth potential with lower media costs (CPMs). We can efficiently achieve a high volume of reach and submissions. The goal is to maximize our submission count in these cost-effective markets.'
                 },
                 'Tier 2 (NA, UK, DE, FR)': {
                     title: 'Tier 2 (60% | $36k)',
-                    text: 'These are mature, high-value markets. While the media cost is higher, the quality and influence of creators can be significant. This is our largest regional investment, aiming for high-quality submissions and brand prestige.'
+                    text: 'These are mature, high-value markets. While media costs are higher, the quality and influence of creators can be very significant. This is our largest regional investment, aimed at acquiring high-quality submissions and brand prestige.'
                 },
                 'Tier 3 (TR, TW)': {
                     title: 'Tier 3 (10% | $6k)',
-                    text: 'These are test markets with passionate creative communities. The smaller budget allows us to gauge performance and CPA. If these regions perform well, we can reallocate funds from other tiers to scale our efforts here.'
+                    text: 'These are test markets with passionate creative communities. A smaller budget allows us to gauge performance and CPA. If these regions perform well, we can re-allocate funds from other tiers to scale our efforts here.'
                 }
             };
 
@@ -341,13 +379,21 @@
                 rationaleText.textContent = text;
             };
             
-            const createClickHandler = (chart, data) => (evt) => {
+            const createClickHandler = (chart) => (evt) => {
                 const points = chart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
                 if (points.length) {
                     const firstPoint = points[0];
                     const label = chart.data.labels[firstPoint.index];
                     if (rationaleContent[label]) {
                         updateRationale(rationaleContent[label].title, rationaleContent[label].text);
+                    }
+                } else {
+                    if (platformBtn.classList.contains('active-tab')) {
+                        updateRationale(rationaleContent.platform_summary.title, rationaleContent.platform_summary.text);
+                    } else if (funnelBtn.classList.contains('active-tab')) {
+                        updateRationale(rationaleContent.funnel_summary.title, rationaleContent.funnel_summary.text);
+                    } else if (regionBtn.classList.contains('active-tab')) {
+                        updateRationale(rationaleContent.region_summary.title, rationaleContent.region_summary.text);
                     }
                 }
             };
@@ -372,66 +418,35 @@
                                 return label;
                             }
                         }
+                    },
+                    datalabels: {
+                        formatter: (value, ctx) => {
+                            const sum = ctx.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                            const percentage = (value * 100 / sum).toFixed(0) + '%';
+                            const valueStr = '$' + Math.round(value / 1000) + 'k';
+                            return `${valueStr}\n(${percentage})`;
+                        },
+                        color: '#fff',
+                        font: {
+                            weight: 'bold',
+                            size: 12,
+                        },
+                        textAlign: 'center',
                     }
                 }
             };
             
             const platformCtx = document.getElementById('platformChart').getContext('2d');
-            const platformChart = new Chart(platformCtx, {
-                type: 'doughnut',
-                data: platformData,
-                options: commonDoughnutOptions
-            });
-            platformChart.canvas.onclick = createClickHandler(platformChart, platformData);
+            const platformChart = new Chart(platformCtx, { type: 'doughnut', data: platformData, options: commonDoughnutOptions });
+            platformChart.canvas.onclick = createClickHandler(platformChart);
 
             const funnelCtx = document.getElementById('funnelChart').getContext('2d');
-            const funnelChart = new Chart(funnelCtx, {
-                type: 'doughnut',
-                data: funnelData,
-                options: commonDoughnutOptions
-            });
-            funnelChart.canvas.onclick = createClickHandler(funnelChart, funnelData);
+            const funnelChart = new Chart(funnelCtx, { type: 'doughnut', data: funnelData, options: commonDoughnutOptions });
+            funnelChart.canvas.onclick = createClickHandler(funnelChart);
 
             const regionCtx = document.getElementById('regionChart').getContext('2d');
-            const regionChart = new Chart(regionCtx, {
-                type: 'bar',
-                data: regionData,
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    indexAxis: 'y',
-                     plugins: {
-                        legend: {
-                           display: false
-                        },
-                         tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    if (context.parsed.x !== null) {
-                                       label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.x);
-                                    }
-                                    return label;
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                             ticks: {
-                                callback: function(value, index, values) {
-                                    return '$' + value / 1000 + 'k';
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-            regionChart.canvas.onclick = createClickHandler(regionChart, regionData);
+            const regionChart = new Chart(regionCtx, { type: 'doughnut', data: regionData, options: commonDoughnutOptions });
+            regionChart.canvas.onclick = createClickHandler(regionChart);
 
             const platformBtn = document.getElementById('platformBtn');
             const funnelBtn = document.getElementById('funnelBtn');
@@ -455,14 +470,22 @@
                 activeBtn.classList.remove('inactive-tab');
                 activeChart.classList.remove('hidden');
 
-                rationaleTitle.textContent = 'Rationale';
-                rationaleText.textContent = 'Select a chart segment to view the detailed logic behind our budget decisions.';
+                if (activeBtn === platformBtn) {
+                     updateRationale(rationaleContent.platform_summary.title, rationaleContent.platform_summary.text);
+                } else if (activeBtn === funnelBtn) {
+                     updateRationale(rationaleContent.funnel_summary.title, rationaleContent.funnel_summary.text);
+                } else if (activeBtn === regionBtn) {
+                     updateRationale(rationaleContent.region_summary.title, rationaleContent.region_summary.text);
+                }
             };
             
             platformBtn.addEventListener('click', () => switchTab(platformBtn, platformChartContainer));
             funnelBtn.addEventListener('click', () => switchTab(funnelBtn, funnelChartContainer));
             regionBtn.addEventListener('click', () => switchTab(regionBtn, regionChartContainer));
+            
+            updateRationale(rationaleContent.platform_summary.title, rationaleContent.platform_summary.text);
         });
     </script>
 </body>
 </html>
+
